@@ -1,0 +1,29 @@
+    {% extends 'myapp/base0.html' %}
+    {% block title %} Register page{% endblock %}
+    {% block middle %}
+	<br>
+		{% if msg %}
+		<div>
+			<h4>{{ msg }}</h4>
+		</div>
+		{% endif %}
+
+		<form class="form" method="post">
+			{% csrf_token %}
+			<div style="margin-left: 5%">
+
+            <div class="row"><label >Username</label>{{ form.username }}</div>
+            <div class="row"><label >First Name</label>{{ form.first_name }}</div>
+            <div class="row"><label >Last Name</label>{{ form.last_name }}</div><br/>
+            <div class="row"><label >Password1 &nbsp;</label>{{ form.password1 }}</div><br/>
+            <div class="row"><label >Password2 &nbsp;</label>{{ form.password2 }}</div>
+
+            <div class="row">&nbsp;</div>
+			<button type="submit" class="btn btn-dark">Register</button>
+            </div>
+		</form>
+		<p>
+			<a href="{% url 'MyAppIADS:login' %}" style="color: #333333;font-size: 25px"> Already Registered? Sign In!</a>
+		</p>
+
+	{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'myapp/base0.html' %}
+
+{% block body_block %}
+
+    {% if error %}
+        <h4> {{ error }}</h4>
+    {% endif %}
+    <form action="{% url 'MyAppIADS:review' %}" method="post">
+        {% csrf_token %}
+        <p style="font-size: 50px;">Write a Review:</p>
+        <div class="row" style="margin-top: 5%">
+
+            <div class="col-md-4"><label style="font-size: 30px">Books:</label>{{ form.book }}</div>
+            <div class="col-md-3"><label style="font-size: 30px">Rating:</label>{{ form.rating }}</div>
+            <div class="col-md-1"><label style="font-size: 30px">Comments:</label>{{ form.comments }}</div>
+            <input type="submit" class="btn btn-primary btn-lg" name="submit2" value="Submit Review" style="margin-left: 35%;"/>
+        </div>
+
+    </form>
+
+{% endblock %}
